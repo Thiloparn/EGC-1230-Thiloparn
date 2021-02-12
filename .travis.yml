@@ -16,5 +16,4 @@ install:
   - pip install codacy-coverage
 script:
   - cd decide
-  - coverage run --branch --source=. ./manage.py test census --keepdb --with-xunit
-  - python-codacy-coverage -r coverage.xml
+  - run --branch --source=. ./manage.py test census --keepdb --with-xunit
