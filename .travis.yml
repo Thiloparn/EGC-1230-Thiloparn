@@ -1,5 +1,7 @@
 dist: xenial
-
+notifications:
+  email:
+    - thiloparn@alum.us.es
 services:
   - postgresql
 addons:
@@ -17,3 +19,10 @@ install:
 script:
   - cd decide
   - coverage run --branch --source=. ./manage.py test census --keepdb --with-xunit
+deploy:
+  provider: heroku
+  app: egc-1230-thiloparn
+  strategy: git
+  api_key: 430e03f1-6009-4e3b-9919-ceab49c6c131
+  on:
+    branch: master
